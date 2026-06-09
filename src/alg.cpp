@@ -1,15 +1,17 @@
-#include "../include/tree.h"
+// Copyright 2026 NNTU-CS
 #include <vector>
+
+#include "../include/tree.h"
 
 static int computeFactorial(int n) {
     int res = 1;
     int multiplier = 2;
-    
+
     while (multiplier <= n) {
         res *= multiplier;
         ++multiplier;
     }
-    
+
     return res;
 }
 
@@ -23,9 +25,11 @@ std::vector<std::vector<char>> getAllPerms(PMTree& treeObj) {
 }
 
 std::vector<char> getPerm1(PMTree& treeObj, int targetIndex) {
-    std::vector<std::vector<char>> allPermutations = getAllPerms(treeObj);
+    std::vector<std::vector<char>> allPermutations =
+        getAllPerms(treeObj);
 
-    if (targetIndex < 1 || targetIndex > static_cast<int>(allPermutations.size())) {
+    if (targetIndex < 1 ||
+        targetIndex > static_cast<int>(allPermutations.size())) {
         return std::vector<char>();
     }
 
@@ -50,8 +54,10 @@ std::vector<char> getPerm2(PMTree& treeObj, int targetIndex) {
     int currentIndex = targetIndex - 1;
 
     while (!currNode->children.empty()) {
-        int childrenCount = static_cast<int>(currNode->children.size());
-        int branchFactorial = computeFactorial(childrenCount - 1);
+        int childrenCount =
+            static_cast<int>(currNode->children.size());
+        int branchFactorial =
+            computeFactorial(childrenCount - 1);
 
         int selectedBranch = currentIndex / branchFactorial;
 
