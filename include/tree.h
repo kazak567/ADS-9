@@ -1,10 +1,9 @@
-#pragma once
 #ifndef INCLUDE_TREE_H_
 #define INCLUDE_TREE_H_
 
 #include <vector>
 
-class PMTree {
+class Tree {
  public:
     struct Node {
         char value;
@@ -15,12 +14,12 @@ class PMTree {
 
     Node* root;
 
-    explicit PMTree(const std::vector<char>& data) {
+    explicit Tree(const std::vector<char>& data) {
         root = new Node();
         constructTree(root, data);
     }
 
-    ~PMTree() {
+    ~Tree() {
         deallocateTree(root);
     }
 
@@ -85,8 +84,8 @@ class PMTree {
     }
 };
 
-std::vector<std::vector<char>> getAllPerms(PMTree& treeObj);
-std::vector<char> getPerm1(PMTree& treeObj, int targetIndex);
-std::vector<char> getPerm2(PMTree& treeObj, int targetIndex);
+std::vector<std::vector<char>> getAllPerms(Tree& treeObj);
+std::vector<char> getPerm1(Tree& treeObj, int targetIndex);
+std::vector<char> getPerm2(Tree& treeObj, int targetIndex);
 
 #endif  // INCLUDE_TREE_H_
