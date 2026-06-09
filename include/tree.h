@@ -1,3 +1,4 @@
+// Copyright 2026 NNTU-CS
 #ifndef INCLUDE_TREE_H_
 #define INCLUDE_TREE_H_
 
@@ -51,7 +52,9 @@ class PMTree {
     }
 
  private:
-    void constructTree(Node* parentNode, const std::vector<char>& availableItems) {
+    void constructTree(
+        Node* parentNode,
+        const std::vector<char>& availableItems) {
         if (availableItems.empty()) {
             return;
         }
