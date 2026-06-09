@@ -3,7 +3,7 @@
 
 #include <vector>
 
-class Tree {
+class PMTree {
  public:
     struct Node {
         char value;
@@ -14,12 +14,12 @@ class Tree {
 
     Node* root;
 
-    explicit Tree(const std::vector<char>& data) {
+    explicit PMTree(const std::vector<char>& data) {
         root = new Node();
         constructTree(root, data);
     }
 
-    ~Tree() {
+    ~PMTree() {
         deallocateTree(root);
     }
 
@@ -84,8 +84,8 @@ class Tree {
     }
 };
 
-std::vector<std::vector<char>> getAllPerms(Tree& treeObj);
-std::vector<char> getPerm1(Tree& treeObj, int targetIndex);
-std::vector<char> getPerm2(Tree& treeObj, int targetIndex);
+std::vector<std::vector<char>> getAllPerms(PMTree& treeObj);
+std::vector<char> getPerm1(PMTree& treeObj, int targetIndex);
+std::vector<char> getPerm2(PMTree& treeObj, int targetIndex);
 
 #endif  // INCLUDE_TREE_H_
