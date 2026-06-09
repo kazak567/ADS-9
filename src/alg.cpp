@@ -1,4 +1,4 @@
-#include "tree.h"
+#include "../include/tree.h"
 #include <vector>
 
 static int computeFactorial(int n) {
@@ -13,7 +13,7 @@ static int computeFactorial(int n) {
     return res;
 }
 
-std::vector<std::vector<char>> getAllPerms(PMTree& treeObj) {
+std::vector<std::vector<char>> getAllPerms(Tree& treeObj) {
     std::vector<std::vector<char>> permsVec;
     std::vector<char> pathVec;
 
@@ -22,7 +22,7 @@ std::vector<std::vector<char>> getAllPerms(PMTree& treeObj) {
     return permsVec;
 }
 
-std::vector<char> getPerm1(PMTree& treeObj, int targetIndex) {
+std::vector<char> getPerm1(Tree& treeObj, int targetIndex) {
     std::vector<std::vector<char>> allPermutations = getAllPerms(treeObj);
 
     if (targetIndex < 1 || targetIndex > static_cast<int>(allPermutations.size())) {
@@ -32,7 +32,7 @@ std::vector<char> getPerm1(PMTree& treeObj, int targetIndex) {
     return allPermutations[targetIndex - 1];
 }
 
-std::vector<char> getPerm2(PMTree& treeObj, int targetIndex) {
+std::vector<char> getPerm2(Tree& treeObj, int targetIndex) {
     std::vector<char> permResult;
 
     if (targetIndex <= 0) {
@@ -46,7 +46,7 @@ std::vector<char> getPerm2(PMTree& treeObj, int targetIndex) {
         return std::vector<char>();
     }
 
-    PMTree::Node* currNode = treeObj.root;
+    Tree::Node* currNode = treeObj.root;
     int currentIndex = targetIndex - 1;
 
     while (!currNode->children.empty()) {
