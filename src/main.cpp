@@ -12,7 +12,7 @@ void printPermutation(const std::vector<char>& perm) {
 
 int main() {
     std::vector<char> inputData = {'1', '2', '3'};
-    Tree myTree(inputData);
+    PMTree myTree(inputData);
 
     std::cout << "=== Experiment 1: Basic Permutations (3 elements) ===" << std::endl;
     std::vector<std::vector<char>> allPerms = getAllPerms(myTree);
@@ -32,7 +32,7 @@ int main() {
     std::cout << "\n=== Experiment 2: Performance Benchmarking ===" << std::endl;
     
     std::vector<char> benchmarkData = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'};
-    Tree benchmarkTree(benchmarkData);
+    PMTree benchmarkTree(benchmarkData);
     
     int n = benchmarkData.size();
     int totalPermsCount = 1;
